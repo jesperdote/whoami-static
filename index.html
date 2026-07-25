@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="klept.ico">
+    <title>DevOps Engineer | Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>JESPER_DOTE<span class="cursor"></span></h1>
+            <div class="subtitle">Senior DevOps Engineer | SRE | Cloud Engineer</div>
+        </header>
+
+        <main>
+            <section>
+                <h2>About</h2>
+                <p>
+                    Orchestrating chaos into stability. I specialize in building resilient infrastructure, 
+                    optimizing CI/CD pipelines, and ensuring 99.99% availability.
+                </p>
+            </section>
+
+            <section>
+                <h2>Stack</h2>
+                <div class="stack-grid">
+                    <div class="terminal-card">
+                        <h3>[ Infrastructure ]</h3>
+                        <ul>
+                            <li>Kubernetes / Helm</li>
+                            <li>Terraform / Ansible</li>
+                            <li>AWS / GCP</li>
+                        </ul>
+                    </div>
+                    <div class="terminal-card">
+                        <h3>[ CI/CD & Observability ]</h3>
+                        <ul>
+                            <li>GitHub Actions / Jenkins</li>
+                            <li>Prometheus / Grafana</li>
+                            <li>ELK Stack</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Connect</h2>
+                <div class="btn-group">
+                    <a href="https://github.com/jesperdote" class="btn">GitHub</a>
+                    <a href="https://www.linkedin.com/in/jesperdote/" class="btn">LinkedIn</a>
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn">Resume.pdf</a>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>root@server:~$ uptime</p>
+            <!-- The ID 'uptime-display' is where we will inject the text -->
+            <p id="uptime-display" style="color: #aaaaaa;">Loading system status...</p>
+        </footer>
+    </div>
+
+    <script>
+        // Static-site version: no server process to poll, so uptime is
+        // computed client-side from a fixed launch instant instead.
+        const LAUNCH_DATE = new Date('2026-07-26T00:00:00Z');
+
+        function formatUptime() {
+            const totalMinutes = Math.floor((Date.now() - LAUNCH_DATE) / 60000);
+            const days = Math.floor(totalMinutes / 1440);
+            const hours = Math.floor((totalMinutes % 1440) / 60);
+            const minutes = totalMinutes % 60;
+            const dayPart = days > 0 ? `${days} day${days === 1 ? '' : 's'}, ` : '';
+            const timePart = `${hours}:${String(minutes).padStart(2, '0')}`;
+            return `up ${dayPart}${timePart},  1 user,  load average: 0.08, 0.05, 0.01`;
+        }
+
+        function updateUptime() {
+            document.getElementById('uptime-display').innerText = formatUptime();
+        }
+
+        updateUptime();
+        setInterval(updateUptime, 5000);
+    </script>
+</body>
+</html>
