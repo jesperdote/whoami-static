@@ -1,6 +1,6 @@
 # whoami-static
 
-Static-site clone of my [whoami](https://infdxeta.info/cooking/) profile page, built for
+Static-site clone of my [whoami](https://infdxeta.info/whoami/) profile page, built for
 free hosting on Netlify.
 
 The original lives in a Docker container on my BananaPi (nginx + a small shell script
